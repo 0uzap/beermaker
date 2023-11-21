@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import 'package:beermaker/myhomepage.dart';
 import 'package:beermaker/etape.dart';
 import 'package:beermaker/outils.dart';
@@ -18,12 +17,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BeerMaker',
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.brown,
       ),
       home: const MyHomePage(title: 'BeerMaker HomePage'),
-      routes: <String, WidgetBuilder> {
-        "/route2":(BuildContext context) => Etape(),
-        "/route3":(BuildContext context) => Outils(), 
+      routes: <String, WidgetBuilder>{
+        "/route2": (BuildContext context) => Etape(),
+        "/route3": (BuildContext context) => Outils(),
       },
     );
   }

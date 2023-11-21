@@ -36,7 +36,7 @@ class SplashScreenState extends State<MyHomePage> {
       width: MediaQuery.of(context).size.width,
       decoration:
           const BoxDecoration(image: DecorationImage(image: AssetImage("Assets/Images/bgor.png"), fit: BoxFit.cover)),
-      // child: Image.asset("Assets/Images/BMLogo/beermakerlogo3000.png"),
+      child: Image.asset("Assets/Images/beermakerlogo3000.png"),
     );
   }
 }

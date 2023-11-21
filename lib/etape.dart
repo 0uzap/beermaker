@@ -12,6 +12,7 @@ class _EtapeState extends State<Etape> {
   int _nbEtape = 0;
   String _titre = Strings.titre0;
   String _text = Strings.texte0;
+  Column _image = Column();
 
   void decrement() {
     if (_nbEtape > 0) {
@@ -31,11 +32,11 @@ class _EtapeState extends State<Etape> {
     IconButton result = const IconButton(onPressed: null, icon: Icon(null));
     if (_nbEtape != 0) {
       result = IconButton(
-        onPressed: decrement,
-        icon: const Icon(
-          Icons.arrow_back,
-          size: 25,
-        ));
+          onPressed: decrement,
+          icon: const Icon(
+            Icons.arrow_back,
+            size: 25,
+          ));
     }
     return result;
   }
@@ -44,54 +45,88 @@ class _EtapeState extends State<Etape> {
     IconButton result = const IconButton(onPressed: null, icon: Icon(null));
     if (_nbEtape != 8) {
       result = IconButton(
-        onPressed: increment,
-        icon: const Icon(
-          Icons.arrow_forward,
-          size: 25,
-        ));
+          onPressed: increment,
+          icon: const Icon(
+            Icons.arrow_forward,
+            size: 25,
+          ));
     }
     return result;
   }
 
   void page() {
     setState(() {
-      switch(_nbEtape) {
+      switch (_nbEtape) {
         case 0:
-        _titre = Strings.titre0;
-        _text = Strings.texte0;
-        break;
+          _titre = Strings.titre0;
+          _text = Strings.texte0;
+          _image = Column(
+            children: [Image.asset("Assets/Images/step00.png")],
+          );
+
+          break;
         case 1:
-        _titre = Strings.titre1;
-        _text = Strings.texte1;
-        break;
+          _titre = Strings.titre1;
+          _text = Strings.texte1;
+          _image = Column(
+            children: [Image.asset("Assets/Images/step10.png"), Image.asset("Assets/Images/step11.png")],
+          );
+          break;
         case 2:
-        _titre = Strings.titre2;
-        _text = Strings.texte2;
-        break;
+          _titre = Strings.titre2;
+          _text = Strings.texte2;
+          _image = Column(
+            children: [Image.asset("Assets/Images/step20.png"), Image.asset("Assets/Images/step21.png")],
+          );
+          break;
         case 3:
-        _titre = Strings.titre3;
-        _text = Strings.texte3;
-        break;
+          _titre = Strings.titre3;
+          _text = Strings.texte3;
+          _image = Column(
+            children: [Image.asset("Assets/Images/step30.png"), Image.asset("Assets/Images/step31.png")],
+          );
+          ;
+          break;
         case 4:
-        _titre = Strings.titre4;
-        _text = Strings.texte4;
-        break;
+          _titre = Strings.titre4;
+          _text = Strings.texte4;
+          _image = Column(
+            children: [Image.asset("Assets/Images/step40.png")],
+          );
+          break;
         case 5:
-        _titre = Strings.titre5;
-        _text = Strings.texte5;
-        break;
+          _titre = Strings.titre5;
+          _text = Strings.texte5;
+          _image = Column(
+            children: [
+              Image.asset("Assets/Images/step50.png"),
+              Image.asset("Assets/Images/step51.png"),
+              Image.asset("Assets/Images/step52.png"),
+              Image.asset("Assets/Images/step53.png")
+            ],
+          );
+          break;
         case 6:
-        _titre = Strings.titre6;
-        _text = Strings.texte6;
-        break;
+          _titre = Strings.titre6;
+          _text = Strings.texte6;
+          _image = Column(
+            children: [Image.asset("Assets/Images/step60.png")],
+          );
+          break;
         case 7:
-        _titre = Strings.titre7;
-        _text = Strings.texte7;
-        break;
+          _titre = Strings.titre7;
+          _text = Strings.texte7;
+          _image = Column(
+            children: [Image.asset("Assets/Images/step70.png"), Image.asset("Assets/Images/step71.png")],
+          );
+          break;
         case 8:
-        _titre = Strings.titre8;
-        _text = Strings.texte8;
-        break;
+          _titre = Strings.titre8;
+          _text = Strings.texte8;
+          _image = Column(
+            children: [Image.asset("Assets/Images/step80.png")],
+          );
+          break;
       }
     });
   }
@@ -123,25 +158,26 @@ class _EtapeState extends State<Etape> {
           ],
         ),
       ),
-      body:  Center(
-        child: Column(
-          children: [
-            Text(_titre,
-                style:
-                    const TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-            const Padding(padding: EdgeInsets.all(10)),
-            Text(_text),
-          ],
-        ),
+      body: ListView(
+        children: [
+          Column(
+            children: [
+              Text(_titre, style: const TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+              const Padding(padding: EdgeInsets.all(10)),
+              Text(_text),
+              /* _image = Column(
+                child: Image.asset("Assets/Images/step00.png"),
+              ), */
+              _image,
+            ],
+          ),
+        ],
       ),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            _btnAvant(),
-            _btnApres()
-          ],
+          children: [_btnAvant(), _btnApres()],
         ),
       ),
     );
@@ -237,11 +273,6 @@ class _EtapeState extends State<Etape> {
   }
 
 */
-
-
-
-  
-
 
 /*
   Widget _textContainer() {
